@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://e1ecy74ndyol"]
+
+[ext_resource type="Texture2D" uid="uid://b81jwdocjbi7x" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="1_tgmo6"]
+
+[node name="SS" type="Area2D"]
+
+[node name="Idle" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+scale = Vector2(5, 5)
+texture = ExtResource("1_tgmo6")
+offset = Vector2(0.545, 0)
+hframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -14)
+build_mode = 1
+polygon = PackedVector2Array(-17, 14, -17, 4, -12, 4, -12, -6, -7, -6, -7, -16, -2, -16, -2, -21, 3, -21, 3, -16, 8, -16, 8, -6, 13, -6, 13, 4, 18, 4, 18, 14)

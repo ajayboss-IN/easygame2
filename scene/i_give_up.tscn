@@ -1,0 +1,165 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1s2msp1h3a8a"]
+
+[ext_resource type="Texture2D" uid="uid://x8w77ng5enub" path="res://all/BG.png" id="1_8qku7"]
+[ext_resource type="Script" path="res://script/back button.gd" id="1_xvskh"]
+[ext_resource type="FontFile" uid="uid://me8avh1xxkol" path="res://built titling sb.otf" id="2_ax5jb"]
+
+[sub_resource type="GDScript" id="GDScript_hd086"]
+script/source = "extends Node2D
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file(\"res://scene/level_1.tscn\")
+
+
+func _on_button_2_pressed():
+	get_tree().change_scene_to_file(\"res://scene/level_5.tscn\")
+
+
+func _on_button_3_pressed():
+	get_tree().change_scene_to_file(\"res://scene/level_8.tscn\")
+
+
+func _on_button_4_pressed():
+	get_tree().change_scene_to_file(\"res://scene/level_4.tscn\")
+
+
+func _on_button_5_pressed():
+	get_tree().change_scene_to_file(\"res://scene/level_2.tscn\")
+
+
+func _on_button_6_pressed():
+	get_tree().change_scene_to_file(\"res://scene/level_7.tscn\")
+
+
+func _on_button_7_pressed():
+	get_tree().change_scene_to_file(\"res://scene/level_3.tscn\")
+
+
+func _on_button_8_pressed():
+	get_tree().change_scene_to_file(\"res://scene/level_6.tscn\")
+
+
+func _on_button_9_pressed():
+	get_tree().change_scene_to_file(\"res://scene/level_9.tscn\")
+
+
+func _on_button_10_pressed():
+	get_tree().change_scene_to_file(\"res://scene/level_10.tscn\")
+"
+
+[node name="i give up" type="Node2D"]
+script = SubResource("GDScript_hd086")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(575, 321.231)
+scale = Vector2(0.916738, 1.11653)
+texture = ExtResource("1_8qku7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 136.0
+offset_top = 200.0
+offset_right = 267.0
+offset_bottom = 311.0
+theme_override_fonts/font = ExtResource("2_ax5jb")
+text = " 1"
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_left = 328.0
+offset_top = 200.0
+offset_right = 459.0
+offset_bottom = 311.0
+theme_override_fonts/font = ExtResource("2_ax5jb")
+text = " 2"
+
+[node name="Button3" type="Button" parent="CanvasLayer"]
+offset_left = 520.0
+offset_top = 200.0
+offset_right = 651.0
+offset_bottom = 311.0
+theme_override_fonts/font = ExtResource("2_ax5jb")
+text = "3"
+
+[node name="Button4" type="Button" parent="CanvasLayer"]
+offset_left = 712.0
+offset_top = 200.0
+offset_right = 843.0
+offset_bottom = 311.0
+theme_override_fonts/font = ExtResource("2_ax5jb")
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer"]
+offset_left = 904.0
+offset_top = 200.0
+offset_right = 1035.0
+offset_bottom = 311.0
+theme_override_fonts/font = ExtResource("2_ax5jb")
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer"]
+offset_left = 136.0
+offset_top = 368.0
+offset_right = 267.0
+offset_bottom = 479.0
+theme_override_fonts/font = ExtResource("2_ax5jb")
+text = "6"
+
+[node name="Button7" type="Button" parent="CanvasLayer"]
+offset_left = 320.0
+offset_top = 368.0
+offset_right = 451.0
+offset_bottom = 479.0
+theme_override_fonts/font = ExtResource("2_ax5jb")
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer"]
+offset_left = 520.0
+offset_top = 368.0
+offset_right = 651.0
+offset_bottom = 479.0
+theme_override_fonts/font = ExtResource("2_ax5jb")
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer"]
+offset_left = 712.0
+offset_top = 368.0
+offset_right = 843.0
+offset_bottom = 479.0
+theme_override_fonts/font = ExtResource("2_ax5jb")
+text = "9"
+
+[node name="Button10" type="Button" parent="CanvasLayer"]
+offset_left = 904.0
+offset_top = 368.0
+offset_right = 1035.0
+offset_bottom = 479.0
+theme_override_fonts/font = ExtResource("2_ax5jb")
+text = "10"
+
+[node name="back button" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("1_xvskh")
+
+[node name="back" type="Button" parent="back button"]
+offset_left = 28.0
+offset_top = 23.0
+offset_right = 253.0
+offset_bottom = 96.0
+scale = Vector2(0.536676, 0.758374)
+theme_override_fonts/font = ExtResource("2_ax5jb")
+theme_override_font_sizes/font_size = 30
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button10" to="." method="_on_button_10_pressed"]
+[connection signal="pressed" from="back button/back" to="back button" method="_on_back_pressed" flags=18]

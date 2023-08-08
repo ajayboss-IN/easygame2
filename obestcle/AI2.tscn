@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://crg67ustms2oe"]
+
+[ext_resource type="Script" path="res://script/AI2.gd" id="1_juhkx"]
+[ext_resource type="Texture2D" uid="uid://bxs0wfuu4yneo" path="res://Pixel Adventure 1/Free/Traps/Rock Head/Blink (42x42).png" id="1_x7fr3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_econe"]
+atlas = ExtResource("1_x7fr3")
+region = Rect2(126, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2vm8"]
+atlas = ExtResource("1_x7fr3")
+region = Rect2(84, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35wi4"]
+atlas = ExtResource("1_x7fr3")
+region = Rect2(42, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt7aw"]
+atlas = ExtResource("1_x7fr3")
+region = Rect2(0, 0, 42, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2fkn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_econe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2vm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35wi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt7aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35wi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2vm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_econe")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5l0a"]
+size = Vector2(240.873, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46766"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqse2"]
+size = Vector2(4.57351, 20)
+
+[node name="AI2" type="CharacterBody2D"]
+script = ExtResource("1_juhkx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h2fkn")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="playerdetcec" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerdetcec"]
+position = Vector2(-213.434, 0)
+scale = Vector2(1.89781, 1.58843)
+shape = SubResource("RectangleShape2D_a5l0a")
+
+[node name="playerdead" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerdead"]
+scale = Vector2(1.57998, 1.63469)
+shape = SubResource("RectangleShape2D_46766")
+debug_color = Color(0.992157, 0, 0.278431, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-11.3712, 0)
+scale = Vector2(1.47425, 1.48934)
+shape = SubResource("RectangleShape2D_gqse2")
+debug_color = Color(0.545098, 0.537255, 0.517647, 0.419608)
+
+[connection signal="body_entered" from="playerdetcec" to="." method="_on_playerdetcec_body_entered"]
+[connection signal="body_exited" from="playerdetcec" to="." method="_on_playerdetcec_body_exited"]
+[connection signal="body_entered" from="playerdead" to="." method="_on_playerdead_body_entered"]

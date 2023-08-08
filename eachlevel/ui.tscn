@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2ro3och02o5a"]
+
+[ext_resource type="Script" path="res://script/ui.gd" id="1_tcytp"]
+[ext_resource type="FontFile" uid="uid://me8avh1xxkol" path="res://built titling sb.otf" id="2_cnmv4"]
+[ext_resource type="FontFile" uid="uid://uf4p8oi0hn30" path="res://eachlevel/Game Of Squids.otf" id="3_62yap"]
+[ext_resource type="PackedScene" uid="uid://c66vy5mki8y7x" path="res://eachlevel/asp.tscn" id="3_fr7p6"]
+[ext_resource type="Texture2D" uid="uid://x8w77ng5enub" path="res://all/BG.png" id="4_tsax7"]
+
+[sub_resource type="Animation" id="Animation_igne3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_byaml"]
+resource_name = "idle"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ao72f"]
+_data = {
+"RESET": SubResource("Animation_igne3"),
+"idle": SubResource("Animation_byaml")
+}
+
+[node name="UI" type="Node2D"]
+script = ExtResource("1_tcytp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="str" type="Button" parent="CanvasLayer"]
+offset_left = 432.0
+offset_top = 338.0
+offset_right = 738.0
+offset_bottom = 452.0
+theme_override_fonts/font = ExtResource("2_cnmv4")
+theme_override_font_sizes/font_size = 30
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="qut" type="Button" parent="CanvasLayer"]
+offset_left = 432.0
+offset_top = 481.0
+offset_right = 738.0
+offset_bottom = 595.0
+theme_override_fonts/font = ExtResource("2_cnmv4")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[node name="about" type="Button" parent="CanvasLayer"]
+offset_left = 920.0
+offset_top = 526.0
+offset_right = 1226.0
+offset_bottom = 640.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_cnmv4")
+theme_override_font_sizes/font_size = 30
+text = "About"
+metadata/_edit_use_anchors_ = true
+
+[node name="giveup" type="Button" parent="CanvasLayer"]
+offset_left = 920.0
+offset_top = 444.0
+offset_right = 1226.0
+offset_bottom = 558.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_cnmv4")
+theme_override_font_sizes/font_size = 30
+text = "I Give up"
+metadata/_edit_use_anchors_ = true
+
+[node name="read" type="Button" parent="CanvasLayer"]
+visible = false
+offset_left = 920.0
+offset_top = 366.0
+offset_right = 1226.0
+offset_bottom = 480.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_cnmv4")
+theme_override_font_sizes/font_size = 30
+text = "Read ME"
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+offset_left = 336.0
+offset_top = 104.0
+offset_right = 850.0
+offset_bottom = 224.0
+theme_override_fonts/font = ExtResource("3_62yap")
+theme_override_font_sizes/font_size = 60
+text = "!Easy game 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_ao72f")
+}
+
+[node name="ASP" parent="." instance=ExtResource("3_fr7p6")]
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(608, 323)
+scale = Vector2(0.95, 1.13135)
+texture = ExtResource("4_tsax7")
+
+[connection signal="pressed" from="CanvasLayer/str" to="." method="_on_str_pressed"]
+[connection signal="pressed" from="CanvasLayer/qut" to="." method="_on_qut_pressed"]
+[connection signal="pressed" from="CanvasLayer/about" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="CanvasLayer/giveup" to="." method="_on_giveup_pressed"]
+[connection signal="pressed" from="CanvasLayer/read" to="." method="_on_about_pressed"]

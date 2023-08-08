@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://4ofbtym4h4xu"]
+
+[ext_resource type="Texture2D" uid="uid://c3iue6pvplrcx" path="res://Pixel Adventure 1/Free/Traps/Spiked Ball/Chain.png" id="1_y7jhd"]
+[ext_resource type="Texture2D" uid="uid://cegxcq3ddhk62" path="res://Pixel Adventure 1/Free/Traps/Spiked Ball/Spiked Ball.png" id="2_61m4r"]
+
+[sub_resource type="GDScript" id="GDScript_iqnuk"]
+script/source = "extends \"res://script/enemymain.gd\"
+
+
+
+
+func _on_body_entered(body):
+	enemy(body)
+"
+
+[sub_resource type="GDScript" id="GDScript_7lbe5"]
+script/source = "extends Sprite2D
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	rotate(0.05)
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8qft3"]
+radius = 12.0
+
+[node name="chain" type="Area2D"]
+position = Vector2(0, 62)
+script = SubResource("GDScript_iqnuk")
+
+[node name="spri" type="Node2D" parent="."]
+
+[node name="Chain" type="Sprite2D" parent="spri"]
+position = Vector2(0, -11)
+texture = ExtResource("1_y7jhd")
+
+[node name="Chain2" type="Sprite2D" parent="spri"]
+position = Vector2(-1, -17)
+texture = ExtResource("1_y7jhd")
+
+[node name="Chain3" type="Sprite2D" parent="spri"]
+position = Vector2(0, -23)
+texture = ExtResource("1_y7jhd")
+
+[node name="Chain4" type="Sprite2D" parent="spri"]
+position = Vector2(-1, -30)
+texture = ExtResource("1_y7jhd")
+
+[node name="Chain5" type="Sprite2D" parent="spri"]
+position = Vector2(1, -36)
+texture = ExtResource("1_y7jhd")
+
+[node name="Chain6" type="Sprite2D" parent="spri"]
+position = Vector2(0, -42)
+texture = ExtResource("1_y7jhd")
+
+[node name="Chain7" type="Sprite2D" parent="spri"]
+position = Vector2(0, -48)
+texture = ExtResource("1_y7jhd")
+
+[node name="Chain8" type="Sprite2D" parent="spri"]
+position = Vector2(-1, -54)
+texture = ExtResource("1_y7jhd")
+
+[node name="Chain9" type="Sprite2D" parent="spri"]
+position = Vector2(0, -60)
+texture = ExtResource("1_y7jhd")
+
+[node name="SpikedBall" type="Sprite2D" parent="spri"]
+rotation = -1.53332
+texture = ExtResource("2_61m4r")
+script = SubResource("GDScript_7lbe5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8qft3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

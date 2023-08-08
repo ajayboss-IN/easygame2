@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx8d5r7ltx6wv"]
+
+[ext_resource type="Texture2D" uid="uid://b81jwdocjbi7x" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="1_qvfnq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_got34"]
+size = Vector2(19.5126, 6.47955)
+
+[node name="spike" type="Area2D"]
+scale = Vector2(2.23077, 2.19266)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.18972)
+scale = Vector2(1.57685, 0.675886)
+shape = SubResource("RectangleShape2D_got34")
+
+[node name="Idle" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-7.17241, -3.64854)
+texture = ExtResource("1_qvfnq")
+
+[node name="Idle2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(7.62069, -3.64854)
+texture = ExtResource("1_qvfnq")

@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc7dl514jwpju"]
+
+[ext_resource type="Texture2D" uid="uid://d33dq2yttkqtn" path="res://Pixel Adventure 1/Free/Traps/Fire/On (16x32).png" id="1_fqx2t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovlcg"]
+atlas = ExtResource("1_fqx2t")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1hoo"]
+atlas = ExtResource("1_fqx2t")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thkgy"]
+atlas = ExtResource("1_fqx2t")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5apsh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovlcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1hoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thkgy")
+}],
+"loop": true,
+"name": &"udel",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwexn"]
+size = Vector2(426, 32)
+
+[node name="flame" type="Area2D"]
+
+[node name="as2" type="AnimatedSprite2D" parent="."]
+position = Vector2(200, -48)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5apsh")
+animation = &"udel"
+autoplay = "udel"
+frame_progress = 0.586183
+
+[node name="as3" type="AnimatedSprite2D" parent="."]
+position = Vector2(144, -48)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5apsh")
+animation = &"udel"
+autoplay = "udel"
+frame_progress = 0.0235596
+
+[node name="as4" type="AnimatedSprite2D" parent="."]
+position = Vector2(88, -48)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5apsh")
+animation = &"udel"
+autoplay = "udel"
+frame_progress = 0.899637
+
+[node name="as5" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, -48)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5apsh")
+animation = &"udel"
+autoplay = "udel"
+frame_progress = 0.0235596
+
+[node name="as6" type="AnimatedSprite2D" parent="."]
+position = Vector2(-24, -48)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5apsh")
+animation = &"udel"
+autoplay = "udel"
+frame_progress = 0.599784
+
+[node name="as7" type="AnimatedSprite2D" parent="."]
+position = Vector2(-80, -48)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5apsh")
+animation = &"udel"
+autoplay = "udel"
+frame_progress = 0.0235596
+
+[node name="as8" type="AnimatedSprite2D" parent="."]
+position = Vector2(-136, -48)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5apsh")
+animation = &"udel"
+autoplay = "udel"
+frame_progress = 0.899637
+
+[node name="as9" type="AnimatedSprite2D" parent="."]
+position = Vector2(-192, -48)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_5apsh")
+animation = &"udel"
+autoplay = "udel"
+frame_progress = 0.0235596
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -64)
+shape = SubResource("RectangleShape2D_wwexn")
